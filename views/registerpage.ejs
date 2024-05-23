@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Registration</title>
+    </head>
+    <body>
+        <form action="/api/user/register" method="POST"
+            enctype="multipart/form-data">
+            <div>
+                <input type="text" placeholder="Enter your first name"
+                    name="firstName">
+            </div>
+            <div>
+                <input type="text" placeholder="Enter your last name"
+                    name="lastName">
+            </div>
+            <div>
+                <input type="email" placeholder="Enter your email" name="email">
+            </div>
+            <div>
+                <input type="password" placeholder="Enter your password"
+                    name="password">
+            </div>
+            <div>
+                <input type="file" name="profileImage"
+                    placeholder="Enter your profile image">
+            </div>
+            <button type="submit">Register</button>
+
+        </form>
+
+    </body>
+</html>
