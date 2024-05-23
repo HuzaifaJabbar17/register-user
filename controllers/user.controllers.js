@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 const User = require("../models/user.model");
 
+const { asyncHandler } = require("../utils/asyncHandler");
+
 const firstController = async (req, res) => {
   res.send("Hello user routes");
 };
-const userRegister = async (req, res) => {
+const userRegister = asyncHandler(async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
   const existedUser = await User.findOne({ email });
@@ -30,10 +32,10 @@ const userRegister = async (req, res) => {
     password,
     profileImage: profileLocalPath,
   });
-  return res
-    .render("registeredsuccessfully");
+  return res.render("registeredsuccessfully");
   //   return res.json("user registered successfully");
-};
+});
+
 const userRegisterUI = async (req, res) => {
   res.render("registerpage");
 };

@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+// const bodyParser = require("body-parser");
 const app = express();
 
 const PORT = process.env.PORT || 8000;
@@ -11,6 +12,12 @@ const user_routes = require("./routes/user.routes");
 app.set("view engine", "ejs");
 // now we have to set its path
 app.set("views", path.resolve("./views"));
+
+app.use(express.json({limit: "16kb"}))
+// app.use(bodyParser.json());
+app.use(express.urlencoded({extended: true, limit: "16kb"}))
+
+
 
 app.use("/api/user", user_routes);
 
